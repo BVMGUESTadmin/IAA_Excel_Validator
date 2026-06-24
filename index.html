@@ -113,16 +113,16 @@
 
   <!-- DRIVING EXPERIENCE -->
   <div class="section" id="driving-section">
-    <h2>3. Fahrerlebnis</h2>
+    <h2>3. Driving Experience</h2>
     <div class="toggle">
-      <label><input type="radio" name="driving-yn" value="yes" onchange="toggleSection('driving')"> Ja, Fahrerlebnis buchen</label>
+      <label><input type="radio" name="driving-yn" value="yes" onchange="toggleSection('driving')"> Ja, Driving Experience buchen</label>
       <label><input type="radio" name="driving-yn" value="no" checked onchange="toggleSection('driving')"> Nein</label>
     </div>
     <div id="driving-body" style="display:none;">
       <label class="field-label">Anzahl Personen</label>
       <input type="number" id="driving-count" min="1" value="1">
       <div style="margin:14px 0;">
-        <a class="tpl" href="Fahrerlebnis_Teilnehmer.xlsx" download>↓ Fahrerlebnis-Vorlage herunterladen</a>
+        <a class="tpl" href="Driving_Experience_Teilnehmer.xlsx" download>↓ Driving Experience-Vorlage herunterladen</a>
       </div>
       <div class="dropzone" id="driving-drop" onclick="document.getElementById('driving-file').click()">
         Excel-Datei hier ablegen oder klicken
@@ -283,14 +283,14 @@ function validateDriving(rows){
     const rn = i+2;
     const vorname = String(r["Vorname"]||"").trim();
     const nachname = String(r["Nachname"]||"").trim();
-    const erlebnis = String(r["Fahrerlebnis"]||"").trim();
+    const erlebnis = String(r["Fahr-Art"]||"").trim();
     const lizenz = String(r["C_Klasse_Fuehrerschein"]||"").trim();
     if(!vorname && !nachname && !erlebnis && !lizenz) return;
     found++;
     if(!vorname) errors.push(`Zeile ${rn}: Vorname fehlt.`);
     if(!nachname) errors.push(`Zeile ${rn}: Nachname fehlt.`);
     if(!["selbstfahren","beifahrer"].includes(erlebnis)){
-      errors.push(`Zeile ${rn}: Fahrerlebnis muss "selbstfahren" oder "beifahrer" sein (gefunden: "${erlebnis||"leer"}").`);
+      errors.push(`Zeile ${rn}: Fahr-Art muss "selbstfahren" oder "beifahrer" sein (gefunden: "${erlebnis||"leer"}").`);
     }
     if(!["Ja","Nein"].includes(lizenz)){
       errors.push(`Zeile ${rn}: C_Klasse_Fuehrerschein muss "Ja" oder "Nein" sein (gefunden: "${lizenz||"leer"}").`);
