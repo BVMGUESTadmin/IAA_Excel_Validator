@@ -457,8 +457,8 @@ function validateDriving(rows){
     }
     if(!vorname) errors.push(`Zeile ${rn}: Vorname fehlt.`);
     if(!nachname) errors.push(`Zeile ${rn}: Nachname fehlt.`);
-    if(!["selbstfahren","beifahrer"].includes(erlebnis)){
-      errors.push(`Zeile ${rn}: Fahr-Art muss "selbstfahren" oder "beifahrer" sein (gefunden: "${erlebnis||"leer"}").`);
+    if(!["Selbstfahrer:in","Beifahrer:in"].includes(erlebnis)){
+      errors.push(`Zeile ${rn}: Fahr-Art muss "Selbstfahrer:in" oder "Beifahrer:in" sein (gefunden: "${erlebnis||"leer"}").`);
     }
     if(!["Ja","Nein"].includes(lizenz)){
       errors.push(`Zeile ${rn}: C_Klasse_Fuehrerschein muss "Ja" oder "Nein" sein (gefunden: "${lizenz||"leer"}").`);
